@@ -21,7 +21,7 @@ Projection of the point cloud from 2D to 3D space uses the pinhole camera model.
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{scattered_points.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{/images/scattered_points.png}}
 \caption{Each point from the field line is transformed to a point cloud situated on the ground plane, image taken using the rviz robot visualizer}
 \label{fig:rviz}
 \end{figure}
