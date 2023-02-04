@@ -19,21 +19,21 @@ The first part of the algorithm is to detect the closest line to a point. By fir
 Next, the average distance of every single point to its closest line is calculated, because the particles have a spread equivalent to the width of the line, then the average distance from every particle to the center of the field line will successfully match the points onto the field line in the best way possible. Using the average x and y distance the estimated location according to odometry $T_{odom}$ is calculated.
 
 
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{/images/point_to_line_filter.png}}
-\caption{Each point from the field line is transformed to a point cloud situated on the ground plane}
-\label{fig:point_to_line}
-\end{figure}
+<p align="center">
+<img src='/images/point_to_line_filter.png' width="600"/>
+</p>
+<p>
+    <em>Each point from the field line is transformed to a point cloud situated on the ground plane</em>
+</p>
 
 For rotation the method is more challenging, See Figure \ref{fig:rotation}. First, a central location for all particles is calculated. represented as the orange point. Next, every single point is projected to its closest line, and the angle between the moved point and the final point is calculated. By summing up the average angle, we get the average rotation of the point cloud to its corresponding line.
 
-
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{/images/angular_rotation.png}}
-\caption{Each point from the field line is transformed to a point cloud situated on the ground plane}
-\label{fig:rotation}
-\end{figure}
-
+<p align="center">
+<img src='/images/angular_rotation.png' width="600"/>
+</p>
+<p>
+    <em>Each point from the field line is transformed to a point cloud situated on the ground plane</em>
+</p>
 
 Now that we have the average $\{\Delta{x}, \Delta{y}, \Delta{\theta}\}$ we use this transformation on top of the original estimated pose to get an Odom estimated pose. 
 
@@ -52,4 +52,7 @@ Since the Kalman filter uses an unscented transform, the previous uncertainties 
 #### Results for Unscented Kalman Filter (UKF) 
 <p align="center">
 <img src="/images/ukf.png" />
+</p>
+<p>
+    <em>Results</em>
 </p>
