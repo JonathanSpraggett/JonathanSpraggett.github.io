@@ -51,7 +51,7 @@ Since the Kalman filter uses an unscented transform, the previous uncertainties 
 
 #### Results for Unscented Kalman Filter (UKF) 
 <p align="center">
-<img src="/images/ukf.png" />
+<img src="/images/ukf.png" width="600"/>
 </p>
 <p>
     <em>Results</em>
