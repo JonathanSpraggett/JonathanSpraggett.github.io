@@ -20,7 +20,7 @@ Next, the average distance of every single point to its closest line is calculat
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{point_to_line_filter.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{/images/point_to_line_filter.png}}
 \caption{Each point from the field line is transformed to a point cloud situated on the ground plane}
 \label{fig:point_to_line}
 \end{figure}
@@ -29,7 +29,7 @@ For rotation the method is more challenging, See Figure \ref{fig:rotation}. Firs
 
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{angular_rotation.png}}
+\centerline{\includegraphics[width=0.5\textwidth]{/images/angular_rotation.png}}
 \caption{Each point from the field line is transformed to a point cloud situated on the ground plane}
 \label{fig:rotation}
 \end{figure}
