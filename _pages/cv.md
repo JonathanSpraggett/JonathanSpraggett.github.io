@@ -7,9 +7,14 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<!-- {% include base_path %} -->
 
-Education
+<object data="[/images/Resume.pdf](https://github.com/manx52/manx52.github.io/blob/master/images/Resum.pdf)" type="application/pdf" width="700px" height="700px">
+    <embed src="[/images/Resume.pdf](https://github.com/manx52/manx52.github.io/blob/master/images/Resum.pdf)">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="[/images/Resume.pdf](https://github.com/manx52/manx52.github.io/blob/master/images/Resum.pdf)">Download PDF</a>.</p>
+    </embed>
+</object>
+<!-- Education
 ======
 * B.S. in GitHub, GitHub University, 2012
 * M.S. in Jekyll, GitHub University, 2014
@@ -57,3 +62,4 @@ Teaching
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+ -->
