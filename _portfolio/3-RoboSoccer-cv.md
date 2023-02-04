@@ -28,7 +28,7 @@ Projection of the point cloud from 2D to 3D space uses the pinhole camera model.
 
 Every 2D point that is detected by the computer vision gets sent into the localization module, which using the transformation of the camera, returns a list of 3D points $\{x_i, y_i\}$. These points represent coordinates from the robot's frame of reference. The field is defined by a series of lines. The field lines are defined as $\{x_1, y_1\}, \{x_2, y_2\}$ with known line thickness $d = 0.025$. Vertical lines have a constraint where $x_1 = x_2$ or $y_1 = y_2$. 
 
-#### Assembled Drone 
+#### Field lines detected
 <p align="center">
 <img src="/images/field_lines.png" width="600"/>
 </p>
