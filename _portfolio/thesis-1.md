@@ -1,7 +1,7 @@
 ---
 title: "Undergraduate Thesis"
 excerpt: "Implemented reinforcement learning (RL) techniques including Proximal Policy Optimization (PPO) and
-Adversarial Imitation Learning to train humanoid robots in tasks such as walking, jumping, and kicking, resulting in improved stability, accuracy, and performance.<br/><img src='/images/bez_kick.png' =500x300>"
+Adversarial Imitation Learning to train humanoid robots in tasks such as walking, jumping, and kicking, resulting in improved stability, accuracy, and performance.<br/><img src='/images/bez_kick.png' height='300' width='500' >"
 collection: portfolio
 ---
 
