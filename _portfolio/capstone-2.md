@@ -1,6 +1,6 @@
 ---
 title: "Undergraduate Capstone"
-excerpt: "This capstone project focuses on designing a drone for nuclear safety inspections. The drone uses computer vision and localization technology for critical data collection and precise navigation in radiated zones. The project aims to improve the safety and efficiency of nuclear inspections while reducing risk to human inspectors. Students will apply their technical skills in computer vision, localization, and drone design to solve a real-world problem in nuclear safety.<br/><img src='/images/drone.jpg'  width="500" height="300">"
+excerpt: "This capstone project focuses on designing a drone for nuclear safety inspections. The drone uses computer vision and localization technology for critical data collection and precise navigation in radiated zones. The project aims to improve the safety and efficiency of nuclear inspections while reducing risk to human inspectors. Students will apply their technical skills in computer vision, localization, and drone design to solve a real-world problem in nuclear safety.<br/><img src='/images/drone.jpg'  height='300' width='500' >"
 collection: portfolio
 ---
 
