@@ -5,19 +5,13 @@ excerpt: "Developed a computer vision software using Python, OpenCV, and ROS for
 collection: portfolio
 ---
 
-In \cite{b1}, the authors defined the line to be from point A to point B and used trivial OpenCV line detection to return the two endpoints of the line for detection. However, this approach fails to recognize the width of the field lines when the robot is close. Having this additional information on the thickness of the field lines is beneficial and can provide much more accuracy when it comes to localization. Instead of defining the field lines as point-to-point lines, lines can be represented as a point cloud that is transformed from the camera's perspective. See Figure \ref{fig:rviz}.
+A common technique to define the line to be from point A to point B and used trivial OpenCV line detection to return the two endpoints of the line for detection. However, this approach fails to recognize the width of the field lines when the robot is close. Having this additional information on the thickness of the field lines is beneficial and can provide much more accuracy when it comes to localization. Instead of defining the field lines as point-to-point lines, lines can be represented as a point cloud that is transformed from the camera's perspective.
 
 Our approach for detecting field lines involves first applying a cover horizon to isolate the field area. Then a thresholding operation will select only the field and ignore all areas that are not on the field. Morphological operations filter out noise around and inside the lines. Then a bitwise operation inverts the image to isolate the lines.
 
-Projection of the point cloud from 2D to 3D space uses the pinhole camera model. See equation 1.
-\begin{gather}
- \begin{bmatrix} x \\ y \\ z\end{bmatrix}
- =
- \frac{f}{Z}
-  \begin{bmatrix}
-  X \\ Y \\ Z
-   \end{bmatrix}
-\end{gather}
+Projection of the point cloud from 2D to 3D space uses the pinhole camera model. See equation below.
+
+$$ {\left\lbrack \matrix{x  \cr y  \cr z} \right\rbrack} = \frac{f}{Z} {\left\lbrack \matrix{X  \cr Y  \cr Z} \right\rbrack} $$
 
 <p align="center">
 <img src='/images/scattered_points.png' width="600"/>
