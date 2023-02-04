@@ -7,7 +7,7 @@ redirect_from:
   - /resume
 ---
 
-<!-- {% include base_path %} -->
+{% include base_path %}
 
 <object data="[/images/Resume.pdf](https://github.com/manx52/manx52.github.io/blob/master/images/Resum.pdf)" type="application/pdf" width="700px" height="700px">
     <embed src="[/images/Resume.pdf](https://github.com/manx52/manx52.github.io/blob/master/images/Resum.pdf)">
