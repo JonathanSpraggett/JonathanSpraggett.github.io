@@ -19,16 +19,20 @@ Projection of the point cloud from 2D to 3D space uses the pinhole camera model.
    \end{bmatrix}
 \end{gather}
 
+<p align="center">
+<img src='/images/scattered_points.png' width="600"/>
+</p>
+<p>
+    <em>Each point from the field line is transformed to a point cloud situated on the ground plane, image taken using the rviz robot visualizer</em>
+</p>
 
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=0.5\textwidth]{/images/scattered_points.png}}
-\caption{Each point from the field line is transformed to a point cloud situated on the ground plane, image taken using the rviz robot visualizer}
-\label{fig:rviz}
-\end{figure}
 
 Every 2D point that is detected by the computer vision gets sent into the localization module, which using the transformation of the camera, returns a list of 3D points $\{x_i, y_i\}$. These points represent coordinates from the robot's frame of reference. The field is defined by a series of lines. The field lines are defined as $\{x_1, y_1\}, \{x_2, y_2\}$ with known line thickness $d = 0.025$. Vertical lines have a constraint where $x_1 = x_2$ or $y_1 = y_2$. 
 
 #### Field lines detected
 <p align="center">
 <img src="/images/field_lines.png" width="600"/>
+</p>
+<p>
+    <em>The field lines detected are not simple point-to-point, but rather rectangles when detected</em>
 </p>
