@@ -51,7 +51,7 @@ Since the Kalman filter uses an unscented transform, the previous uncertainties 
 <img src="/images/ukf.png" width="600"/>
 </p>
 <p>
-    <em>Results</em>
+    <em>Video</em>
 </p>
 
 [![IMAGE ALT TEXT HERE](/images/ukf_vid.png)](https://drive.google.com/file/d/1JxMgp_nBoYYWKC2NnRFqYc-xffr35isx/view)
