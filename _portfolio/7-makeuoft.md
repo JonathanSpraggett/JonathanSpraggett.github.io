@@ -1,5 +1,5 @@
 ---
-title: "MakeUofT 2020 - Best Unconnected Hack"
+title: "MakeUofT - Best Unconnected Hack (2020)"
 excerpt: "Designed and created an innovative autonomous flower pot that uses computer vision and environmental sensors to track and move toward optimal sunlight and water locations.<br/><img src='/images/make.jpg' height='300' width='500' >"
 collection: portfolio
 ---
