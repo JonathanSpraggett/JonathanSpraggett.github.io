@@ -1,5 +1,5 @@
 ---
-title: "Note Transcription using convolutional neural network (CNN)"
+title: "Note Transcription using convolutional neural network (CNN) (2020)"
 excerpt: "Developed a convolutional neural network for classifying musical notes from spectrogram images with 90% accuracy.<br/><img src='/images/notes.png' height='300' width='500' >"
 collection: portfolio
 ---
