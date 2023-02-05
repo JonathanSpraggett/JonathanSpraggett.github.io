@@ -38,10 +38,10 @@ As a skilled Robotic Software Developer and Team Lead at UTRA Humanoid, I have m
 
 ### Robot Capabilities 
 Qualification Video                 
-:-------------------------:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/PnHDpNx1NyU/0.jpg)](https://youtu.be/PnHDpNx1NyU)
-  Short Clip     
- ![Demo CountPages alpha](/images/gif.gif)
+
+Short Clip     
+![Demo CountPages alpha](/images/gif.gif)
  
 ### Unscented Kalman Filter (UKF) 
 <p align="center">
