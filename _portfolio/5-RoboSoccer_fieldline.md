@@ -29,3 +29,7 @@ Every 2D point that is detected by the computer vision gets sent into the locali
 <p>
     <em>The field lines detected are not simple point-to-point, but rather rectangles when detected</em>
 </p>
+
+### Video 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/JwFqQIDc-Jc/0.jpg)](https://youtu.be/JwFqQIDc-Jc)
+
