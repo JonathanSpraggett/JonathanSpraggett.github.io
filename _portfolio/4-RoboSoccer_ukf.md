@@ -1,4 +1,3 @@
-
 ---
 title: "RoboSoccer Unscented Kalman Filter Localization with Field
 Line Observations"
