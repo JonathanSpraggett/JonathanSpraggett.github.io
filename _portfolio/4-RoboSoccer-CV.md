@@ -1,5 +1,5 @@
 ---
-title: "RoboSoccer Object Detection"
+title: "RoboSoccer Object Detection (2022)"
 excerpt: "Developed a computer vision software using Python, yolov5, and ROS for object detection.<br/><img src='/images/detect.png' height='300' width='500' >"
 collection: portfolio
 ---
