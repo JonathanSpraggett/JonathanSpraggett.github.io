@@ -6,7 +6,7 @@ excerpt: "The Unscented Kalman filter uses odometry and computer vision to calcu
 collection: portfolio
 ---
 
-\subsection{Estimating the visual odometry pose}
+### Estimating the visual odometry pose
 
 Since we are dealing with particles rather than individual lines, the processing tends to be computationally expensive. However, the trade-off is possible since we use UKF rather than the much more computationally expensive particle filter.
 
@@ -26,7 +26,7 @@ Next, the average distance of every single point to its closest line is calculat
     <em>Each point from the field line is transformed to a point cloud situated on the ground plane</em>
 </p>
 
-For rotation the method is more challenging, See Figure \ref{fig:rotation}. First, a central location for all particles is calculated. represented as the orange point. Next, every single point is projected to its closest line, and the angle between the moved point and the final point is calculated. By summing up the average angle, we get the average rotation of the point cloud to its corresponding line.
+For rotation the method is more challenging, See Figure below. First, a central location for all particles is calculated. represented as the orange point. Next, every single point is projected to its closest line, and the angle between the moved point and the final point is calculated. By summing up the average angle, we get the average rotation of the point cloud to its corresponding line.
 
 <p align="center">
 <img src='/images/angular_rotation.png' width="600"/>
@@ -37,9 +37,8 @@ For rotation the method is more challenging, See Figure \ref{fig:rotation}. Firs
 
 Now that we have the average $\{\Delta{x}, \Delta{y}, \Delta{\theta}\}$ we use this transformation on top of the original estimated pose to get an Odom estimated pose. 
 
-# TODO add some equations here
 
-\subsection{Combining the visual odometry pose with the Unscented Kalman Filter}
+### Combining the visual odometry pose with the Unscented Kalman Filter
 
 The Unscented Kalman filter (UKF) combines odometry measurements calculated from robot movement odometry and the odom estimated pose to produce an optimal estimate. The Unscented Kalman filter was chosen because of its simplicity and robustness to highly nonlinear movements, as opposed to an extended Kalman filter (EKF), which requires that the robot model's nonlinear equations be accurate.
 
@@ -49,7 +48,7 @@ The update step uses the previously calculated odometry value and then uses the 
 
 Since the Kalman filter uses an unscented transform, the previous uncertainties can be used to calculate the sigma points. These points are applied through the predict and update steps to calculate the new covariance values post-transform. If sufficiently reasonable estimates are provided for odometry error and visual odometry error, where visual odometry error is assumed to be much larger. Then the robot is able to navigate to the destination with good accuracy. The tuning of the covariance parameters for the predict and update steps is largely based on keeping the ground truth within the 1 sigma bound, as it is infeasible to analytically calculate the covariance from the computer vision model.
 
-#### Results for Unscented Kalman Filter (UKF) 
+### Results for Unscented Kalman Filter (UKF) 
 <p align="center">
 <img src="/images/ukf.png" width="600"/>
 </p>
