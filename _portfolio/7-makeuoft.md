@@ -1,6 +1,6 @@
 ---
 title: "MakeUofT 2020 - Best Unconnected Hack"
-excerpt: "Developed a convolutional neural network for classifying musical notes from spectrogram images with 90% accuracy.<br/><img src='/images/make.jpg' height='300' width='500' >"
+excerpt: "Designed and created an innovative autonomous flower pot that uses computer vision and environmental sensors to track and move toward optimal sunlight and water locations.<br/><img src='/images/make.jpg' height='300' width='500' >"
 collection: portfolio
 ---
 
