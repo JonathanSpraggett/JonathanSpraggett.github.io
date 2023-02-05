@@ -56,4 +56,4 @@ Short Clip
 ### Field Line Detection 
 Field Lines                |  Point Cloud            
 :-------------------------:|:-------------------------:
-![Demo CountPages alpha](/images/field_lines.png)   | ![Demo CountPages alpha](/images/scattered_points.png)
+<img src="/images/field_lines.png" height='300' width='500'/>   | <img src="/images/scattered_points.png" height='300' width='500'/>
