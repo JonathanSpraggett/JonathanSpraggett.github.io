@@ -1,5 +1,5 @@
 ---
-title: "RoboSoccer Unscented Kalman Filter Localization with Field
+title: "RoboSoccer Unscented Kalman Filter Localization with Field (2022-2023)
 Line Observations"
 excerpt: "The Unscented Kalman filter uses odometry and computer vision to calculate an optimal estimate of the robot's location and navigate accurately to the destination, with tuning of the covariance parameters based on keeping the ground truth within the 1 sigma bound.<br/><img src='/images/ukf.png' height='300' width='500' >"
 collection: portfolio
