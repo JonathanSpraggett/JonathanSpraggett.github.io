@@ -1,5 +1,5 @@
 ---
-title: "TOHacks 2018 - Winner"
+title: "TOHacks - Winner (2018)"
 excerpt: "Programmed an android app using IBM Watson API to deliver a satisfying user experience for connecting top applicants with top companies.<br/><img src='/images/JOB.png' height='300' width='500' >"
 collection: portfolio
 ---
