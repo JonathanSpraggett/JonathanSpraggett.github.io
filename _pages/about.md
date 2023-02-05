@@ -26,7 +26,7 @@ Undergraduate Capstone
 ======
 
 This undergraduate capstone project focuses on the design and development of a drone for nuclear safety inspections. The drone is equipped with computer vision object detection technology to enable it to read critical data from radiated zones. In addition to object detection, the drone is also equipped with localization technology for precise waypoint motion planning. This allows the drone to accurately navigate through the radiated zones, collect and analyze data, and provide important insights into the safety of the site. The project aims to develop a robust and efficient drone solution that can improve the safety and reliability of nuclear inspections while reducing the risk to human inspectors. The capstone project is an opportunity for students to apply their technical skills and knowledge in the fields of computer vision, localization, and drone design to tackle a real-world problem in the field of nuclear safety.
-#### Assembled Drone 
+### Assembled Drone 
 <p align="center">
 <img src="/images/drone.jpg" width="600"/>
 </p>
@@ -36,10 +36,23 @@ RoboSoccer Highlights
 
 As a skilled Robotic Software Developer and Team Lead at UTRA Humanoid, I have made significant contributions to the field of robotics through software solutions. I utilized Python, OpenCV, and ROS to implement the Adaptive Monte Carlo Localization (AMCL) and Unscented Kalman Filter (UKF) algorithms, which ensured precise robot positioning. I also developed an FSM-based AI for soccer games' strategic decision-making. My leadership skills were put to the test as I led a team of 30 to build a cost-effective humanoid robot that placed 5th in the Robocup 2022 competition in Bangkok. I am proud of my impact in the field and excited to continue driving innovation and growth.
 
-#### Robot Capabilities 
-![Demo CountPages alpha](/images/gif.gif)
-
-#### Unscented Kalman Filter (UKF) 
+### Robot Capabilities 
+Qualification Video                 
+:-------------------------:
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/PnHDpNx1NyU/0.jpg)](https://youtu.be/PnHDpNx1NyU)
+  Short Clip     
+ ![Demo CountPages alpha](/images/gif.gif)
+### Unscented Kalman Filter (UKF) 
 <p align="center">
 <img src="/images/ukf.png" />
 </p>
+
+### Object Detection (Yolov5) 
+<p align="center">
+<img src="/images/detect.png" />
+</p>
+
+### Field Line Detection 
+Field Lines                |  Point Cloud            
+:-------------------------:|:-------------------------:
+![Demo CountPages alpha](/images/field_lines.png)   | ![Demo CountPages alpha](/images/scattered_points.png)
