@@ -54,6 +54,12 @@ Short Clip
 </p>
 
 ### Field Line Detection 
-Field Lines                |  Point Cloud            
-:-------------------------:|:-------------------------:
-<img src="/images/field_lines.png"  width='400'/>   | <img src="/images/scattered_points.png" width='400'/>
+Field Lines   
+<p align="center">
+<img src="/images/field_lines.png"  width='500'/>  
+</p>
+
+Point Cloud 
+<p align="center">
+<img src="/images/scattered_points.png" width='500'/>
+</p>
