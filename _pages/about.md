@@ -20,7 +20,7 @@ This thesis presents a new approach for training control-related tasks in humano
 
 Walking Task               |  Kicking Task             |  Jumping Task
 :-------------------------:|:-------------------------:|:-------------------------:
-[Video](https://drive.google.com/file/d/19GCgfvvGYjweLEn7ZBMhO4SBAYYqVL6E/view?usp=sharing)<img src="/images/bez_walk.png" width="300"/>   |  [Video](https://drive.google.com/file/d/1Cyms_T3oWZoMaW69t-5PMxBNRFpFf_eY/view?usp=sharing)<img src="/images/bez_kick.png" width="300"/> |  [Video](https://drive.google.com/file/d/1kOQWXYKEsBclPH4ebD-uuuZmzzrWTaHk/view?usp=sharing)<img src="/images/bez_jump.png" width="300"/>
+[Video](https://drive.google.com/file/d/19GCgfvvGYjweLEn7ZBMhO4SBAYYqVL6E/view?usp=sharing)<img src="/images/walk.gif" width="300"/>   |  [Video](https://drive.google.com/file/d/1Cyms_T3oWZoMaW69t-5PMxBNRFpFf_eY/view?usp=sharing)<img src="/images/kick.gif" width="300"/> |  [Video](https://drive.google.com/file/d/1kOQWXYKEsBclPH4ebD-uuuZmzzrWTaHk/view?usp=sharing)<img src="/images/jump.gif" width="300"/>
 
 Autonomous Drone for Nuclear Safety Inspections Capstone
 ======
