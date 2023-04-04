@@ -31,3 +31,9 @@ Designed and developed a cutting-edge drone for nuclear safety inspections. Equi
   <img src="/images/c3_3.png" width='500'/>
 </p>
 
+
+### Midterm Video
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=Ou9ef7QbNfE"><img src="https://img.youtube.com/vi/Ou9ef7QbNfE/0.jpg" alt="IMAGE ALT TEXT"></a>
+</p>
