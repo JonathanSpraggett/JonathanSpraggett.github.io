@@ -28,7 +28,7 @@ Autonomous Drone for Nuclear Safety Inspections Capstone
 Designed and developed a cutting-edge drone for nuclear safety inspections. Equipped with CV object detection (YoloV5), the drone can read critical data from radiated zones, while its visual SLAM enables accurate localization, RRT* allows for obstacle-free path planning and precise way-point motion planning for navigation through these zones.
 ### Assembled Drone 
 <p align="center">
-<img src="/images/drone.jpg" width="600"/>
+<img src="/images/Hardware.png" width="1000"/>
 </p>
 
 RoboSoccer Highlights
