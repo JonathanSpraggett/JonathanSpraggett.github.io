@@ -1,5 +1,5 @@
 ---
-title: "Undergraduate Capstone (2023)"
+title: "Autonomous Drone for Nuclear Safety Inspections Capstone (2023)"
 excerpt: "Designed and developed a cutting-edge drone for nuclear safety inspections. Equipped with CV object detection (YoloV5), the drone can read critical data from radiated zones, while its visual SLAM enables accurate localization, RRT* allows for obstacle-free path planning and precise way-point motion planning for navigation through these zones.<br/><img src='/images/drone.jpg'  height='300' width='500' >"
 collection: portfolio
 ---
