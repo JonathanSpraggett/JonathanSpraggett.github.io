@@ -25,10 +25,20 @@ Designed and developed a cutting-edge drone for nuclear safety inspections. Equi
 ### Challenge 3 - Waypoint Navigation 
 
 <p align="center">
-  <img src="/images/c3_2.png" width='500'/>
+  <img src="/images/c3_4.png" width='500'/>
+  <img src="/images/c3.png" width='500'/>
   <a href="https://www.youtube.com/watch?v=pLiu4lUnUiU"><img src="https://img.youtube.com/vi/pLiu4lUnUiU/0.jpg" alt="IMAGE ALT TEXT"></a>
   <img src="/images/c3_1.png" width='500'/>
   <img src="/images/c3_3.png" width='500'/>
+</p>
+
+### Challenge 4 - Waypoint Navigation with Obstacles 
+
+<p align="center">
+  <img src="/images/c4.png" width='500'/>
+  <a href="https://www.youtube.com/watch?v=VCbzIF69IFw"><img src="https://img.youtube.com/vi/VCbzIF69IFw/0.jpg" alt="IMAGE ALT TEXT"></a>
+  <img src="/images/c4_3.png" width='500'/>
+  <img src="/images/c4_2.png" width='500'/>
 </p>
 
 
