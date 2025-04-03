@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Jonathan Spraggett"
   avatar           : "profile.jpg"
-  bio              : "4th year Engsci in Robotics and AI at the University of Toronto"
+  bio              : "Robotics Software Engineer @ Mostavio | UofT EngSci Robotics"
   location         : "Toronto, Ontario, Canada"
-  employer         :
+  employer         : "https://www.mostavio.com/"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=vjJPJc8AAAAJ&hl=en"
-  email            :
+  email            : "jonathanspraggett@gmail.com"
   researchgate     : "https://www.researchgate.net/profile/Jonathan-Spraggett"
   uri              :
   bitbucket        :
@@ -96,17 +96,17 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "manx52"
+  github           : "JonathanSpraggett"
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      :
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/jonathan-spraggett-722697a4/"
   orcid            : 
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    :
   steam            :
   tumblr           :
   twitter          : 
