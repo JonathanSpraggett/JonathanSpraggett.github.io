@@ -5,6 +5,7 @@ on:
     branches: [redesign/as-folio-2026]
     paths:
       - '.github/workflows/stage-asfolio-static.yml'
+      - 'site-v2/app/**'
   workflow_dispatch:
 
 permissions:
@@ -47,13 +48,13 @@ jobs:
           test -s dist/cv/index.html
           test -s dist/projects/index.html
           test -s dist/publications/index.html
-          for slug in heavy-lift-evtol-autonomy motion-planning-mpc state-estimation-localization flight-testing-filtering skyguard-security-autonomy robocup-software nuclear-inspection-drone humanoid-zero-shot-getup sim2real-soccer; do
+          for slug in heavy-lift-evtol-autonomy motion-planning-mpc state-estimation-localization flight-testing-filtering skyguard-security-autonomy robocup-software nuclear-inspection-drone humanoid-zero-shot-getup sim2real-soccer payload-aware-mpc; do
             test -s "dist/projects/$slug/index.html"
           done
           for pdf in short_cv.pdf aiaa2026_fft.pdf robocup2025.pdf thesis_2023.pdf; do
             test -s "dist/assets/pdf/$pdf"
           done
-          if grep -RilE 'vfs2027_submitted|spraggett2027payloadmpc|Payload-Aware Model Predictive Control for a Heavy-Lift Coaxial eVTOL' dist; then
+          if grep -RilE 'vfs2027_submitted|payload-mpc-results|vfs2027\\.pdf' dist; then
             echo 'ERROR: unpublished research reference in static output'
             exit 1
           fi
@@ -61,7 +62,8 @@ jobs:
             echo 'ERROR: unpublished research asset in static output'
             exit 1
           fi
-          echo 'PASS: all primary routes, four public PDFs, and embargo checks.'
+          grep -q 'Payload-Aware Model Predictive Control' dist/projects/payload-aware-mpc/index.html
+          echo 'PASS: project routes, four public PDFs, text-only VFS summary and embargo checks.'
 
       - name: Stage a fully rendered static site on an isolated branch
         shell: bash
@@ -71,7 +73,7 @@ jobs:
           stage="$RUNNER_TEMP/astro-static-release"
           git worktree add --detach "$stage" HEAD
           cd "$stage"
-          git switch --orphan deploy/as-folio-static
+          git switch --orphan deploy/as-folio-static-visual-2026
           git rm -r --ignore-unmatch . > /dev/null || true
           find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf -- {} +
           cp -a "$src/." .
@@ -81,7 +83,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m "build: audited Astro static Pages release"
-          git push origin HEAD:refs/heads/deploy/as-folio-static
+          git push origin HEAD:refs/heads/deploy/as-folio-static-visual-2026
           echo "Static release commit: $(git rev-parse HEAD)"
 
       - name: Upload production build archive

@@ -9,12 +9,12 @@ import Base from '@layouts/Base.astro';
 import { site } from '@config/site';
 const asset = (url: string) => `${site.base}${url}`;
 const projects = [
-  { slug:'heavy-lift-evtol-autonomy', title:'Autonomy for a heavy-lift eVTOL', category:'AERIAL ROBOTICS · MOSTAVIO', image:'aircraft.webp', alt:'Mostavio multi-rotor eVTOL on an illuminated test platform', description:'Full-stack mission autonomy: planning, sensor fusion, control integration and flight validation.' },
-  { slug:'motion-planning-mpc', title:'Kinodynamic planning & 3D MPC', category:'PLANNING · OPTIMIZATION', image:'mapping.webp', alt:'Stereo mapping and 3D reconstruction visualization', description:'RRT* planning, minimum-snap trajectories, constrained MPC and ESDF-based obstacle avoidance.' },
-  { slug:'skyguard-security-autonomy', title:'Skyguard security autonomy', category:'APPLIED ROBOTICS · PERCEPTION', image:'aerial-perception.webp', alt:'Aerial camera view used to illustrate drone perception software', description:'Detection, tracking, geolocation and behavior execution for autonomous security missions.' },
-  { slug:'humanoid-zero-shot-getup', title:'One policy, seven humanoids', category:'ROBOT LEARNING · ROBOCUP 2025', image:'humanoid-suite.webp', alt:'Seven differently sized humanoid robot models arranged side by side', description:'A unified CrossQ reinforcement learning policy with up to 86 ± 7% zero-shot recovery success.' },
-  { slug:'flight-testing-filtering', title:'Flight-tested control & filtering', category:'CONTROLS · AIAA 2026', image:'flight-test.webp', alt:'Mostavio aircraft at an indoor test site', description:'Frequency-domain vibration mitigation and stability analysis validated on the actual aircraft.' },
-  { slug:'sim2real-soccer', title:'Sim2Real soccer skills', category:'HUMANOIDS · UNDERGRADUATE THESIS', image:'sim2real.webp', alt:'Humanoid robot soccer simulation', description:'PPO and adversarial motion priors for walking, jumping and kicking in simulation.' },
+  { slug:'heavy-lift-evtol-autonomy', title:'Autonomy for a heavy-lift eVTOL', category:'AERIAL ROBOTICS · MOSTAVIO', image:'aircraft.webp', alt:'Mostavio multi-rotor eVTOL on an illuminated test platform', description:'Planning, estimation and flight-tested autonomy on a full-scale eVTOL.' },
+  { slug:'motion-planning-mpc', title:'Kinodynamic planning & 3D MPC', category:'PLANNING · OPTIMIZATION', image:'mapping.webp', alt:'Stereo mapping and 3D reconstruction visualization', description:'From 3D motion planning to feasible, obstacle-aware flight.' },
+  { slug:'skyguard-security-autonomy', title:'Skyguard security autonomy', category:'APPLIED ROBOTICS · PERCEPTION', image:'aerial-perception.webp', alt:'Aerial camera view used to illustrate drone perception software', description:'Detection, geolocation and decision-making for aerial security.' },
+  { slug:'humanoid-zero-shot-getup', title:'One policy, seven humanoids', category:'ROBOT LEARNING · ROBOCUP 2025', image:'humanoid-suite.webp', alt:'Seven differently sized humanoid robot models arranged side by side', description:'A single policy that generalizes to unseen humanoid bodies.' },
+  { slug:'flight-testing-filtering', title:'Flight-tested control & filtering', category:'CONTROLS · AIAA 2026', image:'flight-test.webp', alt:'Mostavio aircraft at an indoor test site', description:'IMU filtering and loop stability validated through flight testing.' },
+  { slug:'sim2real-soccer', title:'Sim2Real soccer skills', category:'HUMANOIDS · UNDERGRADUATE THESIS', image:'sim2real.webp', alt:'Humanoid robot soccer simulation', description:'Walking, kicking and jumping learned with PPO and imitation.' },
 ];
 const publications = [
   {title:'Flight-Validated Digital Filtering for Vibration Mitigation on a 250 kg eVTOL', authors:'J. Spraggett, N. Pourmostaghim, Y. Sadat-Nejad', venue:'AIAA SciTech · 2026', description:'FFT-guided IMU filtering with full-scale flight-test validation.', image:'fft.webp', alt:'Power spectral density comparison for raw and filtered IMU measurements', pdf:'/assets/pdf/aiaa2026_fft.pdf', project:'/projects/flight-testing-filtering/'},
@@ -70,6 +70,14 @@ const experiences = [
           <div class="paper-content"><p class="paper-venue">{paper.venue}</p><h3>{paper.title}</h3><p class="paper-authors">{paper.authors}</p><p class="paper-description">{paper.description}</p><div class="paper-links"><a href={asset(paper.pdf)} target="_blank" rel="noopener noreferrer">PDF ↗</a><a href={asset(paper.project)}>Project details ↗</a></div></div>
         </article>)}
       </div>
+      <article class="publication publication--text-only" aria-label="VFS 2027 research submission summary">
+        <div class="paper-content">
+          <p class="paper-venue">VFS 2027 · SUBMITTED</p>
+          <h3>Payload-Aware Model Predictive Control for a Heavy-Lift Coaxial eVTOL</h3>
+          <p class="paper-authors">J. Spraggett, N. Pourmostaghim, Y. Sadat-Nejad</p>
+          <p class="paper-description">Online mass-aware outer-loop MPC for a heavy-lift aircraft with varying payload. Research summary only; no figures, files or manuscript links released.</p>
+        </div>
+      </article>
       <p class="publication-note">Additional research includes <a href={asset('/assets/pdf/thesis_2023.pdf')}>my 2023 undergraduate thesis</a> and co-authorship on <a href={asset('/publications/')}>NoFADE (NeurIPS 2021)</a>.</p>
     </section>
 
@@ -131,6 +139,8 @@ const experiences = [
   .paper-description{font-size:.85rem;color:var(--global-text-color-light);margin:0 0 11px;line-height:1.5}
   .paper-links{display:flex;flex-wrap:wrap;gap:21px;font-size:.82rem;font-weight:710}
   .paper-links a{color:var(--global-theme-color)}
+  .publication--text-only{grid-template-columns:1fr; padding:18px 22px; margin-top:16px; border:1px solid var(--global-divider-color);border-radius:8px;background:var(--global-card-bg-color,transparent)}
+  .publication--text-only .paper-description{display:block}
   .publication-note{font-size:.85rem;color:var(--global-text-color-light);margin-top:20px;line-height:1.5}
   .publication-note a{color:var(--global-theme-color)}
   .timeline-row{display:grid;grid-template-columns:175px 1fr;gap:25px;padding:23px 0;border-bottom:1px solid var(--global-divider-color)}

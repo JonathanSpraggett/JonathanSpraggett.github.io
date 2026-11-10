@@ -43,14 +43,14 @@ jobs:
         run: |
           set -euo pipefail
           test -s dist/index.html
-          for page in projects/heavy-lift-evtol-autonomy projects/state-estimation-localization projects/humanoid-zero-shot-getup projects/nuclear-inspection-drone publications cv; do
+          for page in projects/heavy-lift-evtol-autonomy projects/state-estimation-localization projects/humanoid-zero-shot-getup projects/nuclear-inspection-drone projects/payload-aware-mpc publications cv; do
             test -s "dist/$page/index.html"
           done
           for asset in short_cv.pdf aiaa2026_fft.pdf robocup2025.pdf thesis_2023.pdf; do
             test -s "dist/assets/pdf/$asset"
           done
           ! find public dist -type f -iname '*vfs2027*' | grep .
-          ! grep -RilE 'vfs2027_submitted|spraggett2027payloadmpc' src public dist
+          ! grep -RilE 'vfs2027_submitted|payload-mpc-results|vfs2027\\.pdf' public dist
           echo "Validated site routes, public documents and no unpublished manuscript."
       - name: Commit sanitized CV asset to redesign branch
         run: |
