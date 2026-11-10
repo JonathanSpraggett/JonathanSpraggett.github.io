@@ -1,0 +1,69 @@
+name: Validate as-folio redesign
+
+on:
+  push:
+    branches: [redesign/as-folio-2026]
+    paths:
+      - 'site-v2/app/**'
+      - '.github/workflows/asfolio-redesign-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and smoke-test Astro portfolio
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: site-v2/app
+    env:
+      ASTRO_SITE: https://jonathanspraggett.github.io
+      ASTRO_BASE: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Sanitize publicly downloadable CV
+        run: |
+          python -m pip install --quiet 'pymupdf>=1.25,<2'
+          python ../scripts/sanitize_public_cv.py public/assets/pdf/short_cv.pdf public/assets/pdf/short_cv_clean.pdf
+          mv public/assets/pdf/short_cv_clean.pdf public/assets/pdf/short_cv.pdf
+      - name: Astro production build
+        run: yarn build
+      - name: Verify pages, downloads and confidential-content exclusion
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/index.html
+          for page in projects/heavy-lift-evtol-autonomy projects/state-estimation-localization projects/humanoid-zero-shot-getup projects/nuclear-inspection-drone publications cv; do
+            test -s "dist/$page/index.html"
+          done
+          for asset in short_cv.pdf aiaa2026_fft.pdf robocup2025.pdf thesis_2023.pdf; do
+            test -s "dist/assets/pdf/$asset"
+          done
+          ! find public dist -type f -iname '*vfs2027*' | grep .
+          ! grep -RilE 'vfs2027_submitted|spraggett2027payloadmpc' src public dist
+          echo "Validated site routes, public documents and no unpublished manuscript."
+      - name: Commit sanitized CV asset to redesign branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/pdf/short_cv.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m 'privacy: publish sanitized short CV [skip ci]'
+            git push origin HEAD:redesign/as-folio-2026
+          fi
+      - name: Upload built site preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: asfolio-review-dist
+          path: site-v2/app/dist/
+          retention-days: 7

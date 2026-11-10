@@ -1,0 +1,94 @@
+# Website CV is deliberately based on supplied short_cv.pdf, NOT the longer master CV.
+cv:
+  name: Jonathan Spraggett
+  location: Toronto, Canada
+  email: jonathanspraggett@gmail.com
+  website: https://jonathanspraggett.github.io
+  summary: Robotics Software Engineer specializing in autonomy, state estimation, motion planning, perception, and flight controls for real-world robotic systems.
+  social_networks:
+    - network: GitHub
+      username: JonathanSpraggett
+    - network: LinkedIn
+      username: jonathan-spraggett-722697a4
+  sections:
+    experience:
+      - company: Mostavio
+        position: Robotics Software Engineer
+        location: Toronto, Canada
+        start_date: 2023-05
+        end_date: present
+        highlights:
+          - Lead autonomy development for a heavy-lift eVTOL using ROS 2, C++ and Python, integrating motion planning, state estimation and mission execution.
+          - Developed behavior-tree mission architecture, 3D kinodynamic RRT*, minimum-snap trajectories, and constrained MPC with nvblox ESDF obstacle mapping.
+          - Led autonomy, perception and localization software for Skyguard security drones, including RF-DETR, object tracking, geolocation and patrol/investigation behaviors.
+          - Designed flight-validated digital filtering for rotor vibrations; published results at AIAA SciTech 2026.
+          - Conducted over 1,500 subscale and 100 full-scale flight tests and developed Gazebo SITL/HITL and CI/CD testing pipelines.
+      - company: University of Toronto Robotics Association
+        position: Reinforcement & Imitation Learning Researcher
+        location: Toronto, Canada
+        start_date: 2021-09
+        end_date: 2025-07
+        highlights:
+          - Developed a unified CrossQ humanoid recovery policy across seven morphologies, reaching up to 86% zero-shot success and publishing at RoboCup Symposium 2025.
+          - Investigated PPO and Adversarial Motion Priors for humanoid soccer behaviors and documented sim-to-real transfer limitations.
+          - Open-sourced the unified humanoid get-up benchmark.
+      - company: University of Toronto Robotics Association
+        position: Robotics Software Team Lead — UTRA RoboSoccer
+        location: Toronto, Canada
+        start_date: 2019-08
+        end_date: 2023-05
+        highlights:
+          - Led a 30-member team developing autonomous humanoid soccer robots, placing 4th worldwide at RoboCup 2023.
+          - Developed real-time detection, inverse perspective mapping, tracking, ICP-based visual odometry and UKF localization.
+          - Developed hierarchical robot behaviors, task decomposition and multi-agent assignment using MILP.
+      - company: Quanta Technology, LLC
+        position: Software Developer
+        start_date: 2020-06
+        end_date: 2022-12
+        highlights:
+          - Optimized graph traversal algorithms for electrical-network analysis, decreasing execution time by 54%.
+          - Implemented SQL data infrastructure supporting over 50 million records.
+    education:
+      - institution: University of Toronto
+        area: Engineering Science, Robotics Major, Artificial Intelligence Minor
+        degree: BASc
+        start_date: 2017
+        end_date: 2023-04
+        highlights:
+          - 'Undergraduate thesis: Sim2Real Reinforcement Learning for Soccer Skills'
+          - 'Selected courses: Mobile Robotics & Perception; Robot Modeling & Control; Probabilistic Reasoning & Learning'
+    projects:
+      - name: Autonomous UAV for Nuclear Safety Inspections
+        date: 2023
+        highlights:
+          - Capstone project combining YOLOv5, visual SLAM, RRT* and waypoint navigation; supervised by Prof. Jonathan Kelly.
+    publications:
+      - title: 'Flight-Validated Digital Filtering for Vibration Mitigation on a 250 kg eVTOL'
+        authors: [Jonathan Spraggett, Nima Pourmostaghim, Younes Sadat-Nejad]
+        date: '2026'
+        journal: AIAA SciTech 2026
+      - title: 'Learning to Get Up Across Morphologies: Zero-Shot Recovery with a Unified Humanoid Policy'
+        authors: [Jonathan Spraggett]
+        date: '2025'
+        journal: RoboCup Symposium 2025
+      - title: 'NoFADE: Analyzing Diminishing Returns on CO2 Investment'
+        authors: [Andre Fu, Justin Tran, Andy Xie, Jonathan Spraggett, et al.]
+        date: '2021'
+        journal: NeurIPS 2021 Climate Change AI Workshop
+    awards:
+      - name: GoAERO Stage 1 Winner
+        issuer: GoAERO
+        date: '2025'
+    skills:
+      - label: Programming
+        details: C/C++, Python, Rust, TypeScript, SQL
+      - label: Robotics
+        details: ROS 2, PX4, BehaviorTree.CPP, Eigen, FreeRTOS
+      - label: Planning & Control
+        details: RRT*, MPC/MPPI, minimum-snap optimization, CVXPY, QP, MILP, flight dynamics
+      - label: Estimation & Perception
+        details: EKF/UKF, visual odometry, sensor fusion, NVIDIA nvblox/ESDF, OpenCV, RF-DETR, YOLO
+      - label: Learning & Simulation
+        details: PyTorch, JAX, Isaac Gym, MuJoCo, Gazebo, SITL/HITL
+      - label: Embedded & Hardware
+        details: NVIDIA Jetson, STM32, CAN, CAD

@@ -1,0 +1,150 @@
+---
+/**
+ * Homepage intentionally differs from the default as-folio about page:
+ * a personal editorial introduction, prominent projects and image-led research,
+ * inspired by the structure (not the design/assets/code) of benagro314.github.io.
+ * All other pages continue using upstream as-folio components.
+ */
+import Base from '@layouts/Base.astro';
+import { site } from '@config/site';
+const asset = (url: string) => `${site.base}${url}`;
+const projects = [
+  { slug:'heavy-lift-evtol-autonomy', title:'Autonomy for a heavy-lift eVTOL', category:'AERIAL ROBOTICS · MOSTAVIO', image:'aircraft.webp', alt:'Mostavio multi-rotor eVTOL on an illuminated test platform', description:'Full-stack mission autonomy: planning, sensor fusion, control integration and flight validation.' },
+  { slug:'motion-planning-mpc', title:'Kinodynamic planning & 3D MPC', category:'PLANNING · OPTIMIZATION', image:'mapping.webp', alt:'Stereo mapping and 3D reconstruction visualization', description:'RRT* planning, minimum-snap trajectories, constrained MPC and ESDF-based obstacle avoidance.' },
+  { slug:'skyguard-security-autonomy', title:'Skyguard security autonomy', category:'APPLIED ROBOTICS · PERCEPTION', image:'aerial-perception.webp', alt:'Aerial camera view used to illustrate drone perception software', description:'Detection, tracking, geolocation and behavior execution for autonomous security missions.' },
+  { slug:'humanoid-zero-shot-getup', title:'One policy, seven humanoids', category:'ROBOT LEARNING · ROBOCUP 2025', image:'humanoid-suite.webp', alt:'Seven differently sized humanoid robot models arranged side by side', description:'A unified CrossQ reinforcement learning policy with up to 86 ± 7% zero-shot recovery success.' },
+  { slug:'flight-testing-filtering', title:'Flight-tested control & filtering', category:'CONTROLS · AIAA 2026', image:'flight-test.webp', alt:'Mostavio aircraft at an indoor test site', description:'Frequency-domain vibration mitigation and stability analysis validated on the actual aircraft.' },
+  { slug:'sim2real-soccer', title:'Sim2Real soccer skills', category:'HUMANOIDS · UNDERGRADUATE THESIS', image:'sim2real.webp', alt:'Humanoid robot soccer simulation', description:'PPO and adversarial motion priors for walking, jumping and kicking in simulation.' },
+];
+const publications = [
+  {title:'Flight-Validated Digital Filtering for Vibration Mitigation on a 250 kg eVTOL', authors:'J. Spraggett, N. Pourmostaghim, Y. Sadat-Nejad', venue:'AIAA SciTech · 2026', description:'FFT-guided IMU filtering with full-scale flight-test validation.', image:'fft.webp', alt:'Power spectral density comparison for raw and filtered IMU measurements', pdf:'/assets/pdf/aiaa2026_fft.pdf', project:'/projects/flight-testing-filtering/'},
+  {title:'Learning to Get Up Across Morphologies: Zero-Shot Recovery with a Unified Humanoid Policy', authors:'J. Spraggett', venue:'RoboCup Symposium · 2025', description:'Unified reinforcement learning across seven humanoid morphologies.',image:'humanoid-suite.webp', alt:'Humanoid robot morphology comparison', pdf:'/assets/pdf/robocup2025.pdf',project:'/projects/humanoid-zero-shot-getup/'},
+];
+const experiences = [
+  {when:'2023 — Present', company:'Mostavio', role:'Robotics Software Engineer', description:'Leading autonomy software for a heavy-lift eVTOL, from perception and state estimation to trajectory tracking, mission logic and flight-test validation.'},
+  {when:'2021 — 2025', company:'University of Toronto Robotics Association', role:'Reinforcement & Imitation Learning Researcher', description:'Humanoid reinforcement learning, sim-to-real research and zero-shot multi-morphology fall recovery.'},
+  {when:'2019 — 2023', company:'UTRA RoboSoccer', role:'Robotics Software Team Lead',description:'Led a 30-person robotics software team working on perception, localization and multi-robot decision-making; 4th at RoboCup 2023.'},
+  {when:'2020 — 2022', company:'Quanta Technology', role:'Software Developer',description:'Graph algorithms and scalable data infrastructure for electrical-network analysis.'},
+];
+---
+<Base isHome={true}>
+  <div class="js-home">
+    <section class="hero" aria-labelledby="home-title">
+      <div class="intro">
+        <p class="eyebrow">ROBOTICS SOFTWARE ENGINEER · TORONTO, CANADA</p>
+        <h1 id="home-title">Jonathan <span>Spraggett.</span></h1>
+        <p class="lead">I build autonomy systems for robots that have to work in the real world.</p>
+        <p class="intro-copy">I lead the development of autonomy software for a heavy-lift eVTOL at <a href="https://www.mostavio.com/" target="_blank" rel="noopener noreferrer">Mostavio</a>, working across motion planning, state estimation, perception, controls and flight testing. I also conduct research in robotics, from flight control to reinforcement learning for humanoids.</p>
+        <div class="hero-actions">
+          <a class="main-link" href={asset('/projects/')}>Explore projects <span aria-hidden="true">↗</span></a>
+          <a href={asset('/assets/pdf/short_cv.pdf')} target="_blank" rel="noopener noreferrer">Download CV <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="social-links" aria-label="Personal links">
+          <a href="https://github.com/JonathanSpraggett" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=vjJPJc8AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/jonathan-spraggett-722697a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:jonathanspraggett@gmail.com">Email</a>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <img src={asset('/assets/img/portfolio/aircraft.webp')} alt="Heavy-lift coaxial eVTOL aircraft developed by Mostavio" width="1340" height="755" fetchpriority="high" />
+        <figcaption>Building, testing and validating autonomy on real aircraft. <span>Mostavio eVTOL</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="selected-work" aria-labelledby="projects-title">
+      <div class="section-head"><div><p class="eyebrow">01 / ENGINEERING & RESEARCH</p><h2 id="projects-title">Selected projects<span class="period">.</span></h2></div><a href={asset('/projects/')}>All projects <span aria-hidden="true">↗</span></a></div>
+      <div class="project-grid">
+        {projects.map((p) => <a class="project-card" href={asset(`/projects/${p.slug}/`)}>
+          <div class="project-media"><img src={asset(`/assets/img/portfolio/${p.image}`)} alt={p.alt} width="800" height="520" loading="lazy" /></div>
+          <div class="project-info"><p class="project-tag">{p.category}</p><h3>{p.title} <span aria-hidden="true">↗</span></h3><p>{p.description}</p></div>
+        </a>)}
+      </div>
+    </section>
+
+    <section class="section papers" id="research" aria-labelledby="publications-title">
+      <div class="section-head"><div><p class="eyebrow">02 / RESEARCH OUTPUT</p><h2 id="publications-title">Selected publications<span class="period">.</span></h2></div><a href={asset('/publications/')}>All publications <span aria-hidden="true">↗</span></a></div>
+      <div class="publication-list">
+        {publications.map((paper) => <article class="publication">
+          <a href={asset(paper.pdf)} class="paper-image" target="_blank" rel="noopener noreferrer" aria-label={`Read ${paper.title}`}><img src={asset(`/assets/img/portfolio/${paper.image}`)} alt={paper.alt} width="440" height="310" loading="lazy" /></a>
+          <div class="paper-content"><p class="paper-venue">{paper.venue}</p><h3>{paper.title}</h3><p class="paper-authors">{paper.authors}</p><p class="paper-description">{paper.description}</p><div class="paper-links"><a href={asset(paper.pdf)} target="_blank" rel="noopener noreferrer">PDF ↗</a><a href={asset(paper.project)}>Project details ↗</a></div></div>
+        </article>)}
+      </div>
+      <p class="publication-note">Additional research includes <a href={asset('/assets/pdf/thesis_2023.pdf')}>my 2023 undergraduate thesis</a> and co-authorship on <a href={asset('/publications/')}>NoFADE (NeurIPS 2021)</a>.</p>
+    </section>
+
+    <section class="section experience" aria-labelledby="experience-title">
+      <div class="section-head"><div><p class="eyebrow">03 / PROFESSIONAL EXPERIENCE</p><h2 id="experience-title">Where I've worked<span class="period">.</span></h2></div><a href={asset('/cv/')}>Full CV <span aria-hidden="true">↗</span></a></div>
+      <div class="timeline">{experiences.map((job) => <div class="timeline-row"><p class="when">{job.when}</p><div><h3>{job.company}</h3><p class="role">{job.role}</p><p class="job-desc">{job.description}</p></div></div>)}</div>
+    </section>
+    <section class="contact"><div><p class="eyebrow">LET'S CONNECT</p><h2>Interested in robotics, autonomy or research?</h2><p>I enjoy working on difficult problems where algorithms meet real hardware.</p></div><a href="mailto:jonathanspraggett@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></section>
+  </div>
+</Base>
+
+<style>
+  .js-home{max-width:1400px;width:100%;margin:0 auto;padding:56px clamp(24px,3.2vw,64px) 100px;color:var(--global-text-color);font-family:var(--font-sans,system-ui,sans-serif)}
+  .js-home *{box-sizing:border-box}
+  .js-home a{text-decoration:none;transition:color .15s ease,border-color .15s ease,transform .15s ease}
+  .js-home a:hover{color:var(--global-theme-color)}
+  .eyebrow{font-size:.69rem!important;font-weight:750!important;letter-spacing:.15em!important;color:var(--global-theme-color)!important;margin:0 0 19px!important}
+  .hero{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);align-items:center;gap:clamp(38px,5vw,84px);padding:44px 0 88px}
+  .intro h1{font-weight:780;letter-spacing:-.058em;line-height:1.02;font-size:clamp(3rem,5.4vw,5rem);margin:0 0 22px;max-width:660px;color:var(--global-text-color)}
+  .intro h1 span{display:block;color:var(--global-theme-color)}
+  .lead{font-size:clamp(1.26rem,2vw,1.63rem);line-height:1.36;font-weight:620;letter-spacing:-.027em;margin:0 0 19px;max-width:590px}
+  .intro-copy{line-height:1.72;color:var(--global-text-color-light);font-size:.995rem;max-width:580px;margin:0 0 24px}
+  .intro-copy a{color:var(--global-theme-color);font-weight:650}
+  .hero-actions{display:flex;gap:21px;align-items:center;flex-wrap:wrap;margin:26px 0 20px;font-size:.89rem;font-weight:680}
+  .hero-actions a{border-bottom:1px solid var(--global-divider-color);padding:11px 0;color:var(--global-text-color)}
+  .hero-actions a.main-link{background:var(--global-theme-color);color:white;padding:12px 18px;border-radius:5px;border:0}
+  .hero-actions a.main-link:hover{transform:translateY(-2px);color:white;filter:brightness(1.08)}
+  .hero-actions span{font-size:1.02rem;margin-left:7px}
+  .social-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:19px;font-size:.8rem;color:var(--global-text-color-light)}
+  .social-links a{color:inherit;border-bottom:1px solid transparent}
+  .social-links a:hover{border-bottom-color:var(--global-theme-color)}
+  .hero-image{position:relative;margin:0;align-self:stretch;min-height:375px;display:flex;flex-direction:column;justify-content:stretch}
+  .hero-image img{width:100%;height:100%;object-fit:cover;border-radius:8px;background:#162b33;aspect-ratio:4/3;max-height:650px}
+  .hero-image figcaption{font-size:.71rem;line-height:1.4;color:var(--global-text-color-light);margin-top:10px}
+  .hero-image figcaption span{float:right}
+  .section{border-top:1px solid var(--global-divider-color);padding-top:48px;margin-top:8px;margin-bottom:72px}
+  .section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:26px}
+  .section-head .eyebrow{margin-bottom:6px!important}
+  .section-head h2{font-size:clamp(1.9rem,3.2vw,2.55rem);font-weight:750;line-height:1.15;letter-spacing:-.04em;margin:0}
+  .period{color:var(--global-theme-color)}
+  .section-head>a{font-size:.85rem;font-weight:650;color:var(--global-theme-color);white-space:nowrap;margin-bottom:6px}
+  .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .project-card{display:block!important;min-width:0;color:var(--global-text-color)!important}
+  .project-media{background:var(--global-card-bg-color,#ecefee);overflow:hidden;aspect-ratio:1.59;border-radius:6px}
+  .project-media img{display:block;height:100%;width:100%;object-fit:cover;transition:transform .3s ease}
+  .project-card:hover .project-media img{transform:scale(1.035)}
+  .project-info{padding:17px 1px 1px}
+  .project-tag{color:var(--global-theme-color);font-size:.67rem!important;font-weight:780;letter-spacing:.11em;margin:0 0 7px!important}
+  .project-info h3{font-size:1.24rem;font-weight:740;letter-spacing:-.022em;line-height:1.35;margin:0 0 7px;color:var(--global-text-color)}
+  .project-info h3 span{color:var(--global-theme-color);font-size:.94rem;margin-left:4px}
+  .project-info>p:last-child{color:var(--global-text-color-light);font-size:.87rem;line-height:1.6;margin:0}
+  .publication{display:grid;grid-template-columns:210px 1fr;gap:26px;padding:23px 0;border-bottom:1px solid var(--global-divider-color)}
+  .publication:first-child{padding-top:0}
+  .paper-image{display:block;width:100%;aspect-ratio:1.53;background:var(--global-card-bg-color,#ecefee);border-radius:5px;overflow:hidden}
+  .paper-image img{width:100%;height:100%;object-fit:cover}
+  .paper-venue{font-size:.72rem!important;letter-spacing:.095em;font-weight:760;color:var(--global-theme-color);text-transform:uppercase;margin:0 0 9px!important}
+  .paper-content h3{font-size:1.24rem;letter-spacing:-.018em;line-height:1.35;font-weight:730;margin:0 0 7px}
+  .paper-authors{font-size:.84rem;color:var(--global-text-color);margin:0 0 9px}
+  .paper-description{font-size:.85rem;color:var(--global-text-color-light);margin:0 0 11px;line-height:1.5}
+  .paper-links{display:flex;flex-wrap:wrap;gap:21px;font-size:.82rem;font-weight:710}
+  .paper-links a{color:var(--global-theme-color)}
+  .publication-note{font-size:.85rem;color:var(--global-text-color-light);margin-top:20px;line-height:1.5}
+  .publication-note a{color:var(--global-theme-color)}
+  .timeline-row{display:grid;grid-template-columns:175px 1fr;gap:25px;padding:23px 0;border-bottom:1px solid var(--global-divider-color)}
+  .timeline-row:first-child{padding-top:7px}
+  .timeline-row .when{font-size:.79rem;color:var(--global-theme-color);font-weight:660;margin:4px 0 0}
+  .timeline-row h3{font-size:1.1rem;line-height:1.2;font-weight:750;margin:0 0 3px}
+  .timeline-row .role{font-size:.87rem;font-weight:650;margin:0 0 8px;color:var(--global-text-color)}
+  .timeline-row .job-desc{font-size:.86rem;color:var(--global-text-color-light);margin:0;line-height:1.65}
+  .contact{display:flex;justify-content:space-between;gap:30px;align-items:center;border-top:1px solid var(--global-divider-color);padding-top:38px;margin-top:18px}
+  .contact .eyebrow{margin-bottom:7px!important}
+  .contact h2{font-size:1.54rem;line-height:1.2;letter-spacing:-.02em;font-weight:700;margin:0 0 7px}
+  .contact p:last-child{font-size:.87rem;color:var(--global-text-color-light);margin:0}
+  .contact>a{font-weight:740;color:var(--global-theme-color);font-size:.91rem;white-space:nowrap}
+  @media(max-width:920px){.hero{grid-template-columns:1fr;gap:24px;padding-top:16px}.hero-image{min-height:unset}.hero-image img{aspect-ratio:16/9;height:auto;max-height:none}.js-home{padding-inline:21px}.project-grid{gap:21px}}
+  @media(max-width:580px){.js-home{padding:21px 18px 56px}.intro h1{font-size:3.05rem}.hero{padding-bottom:50px}.project-grid{grid-template-columns:1fr}.section{padding-top:34px;margin-bottom:49px}.section-head{align-items:end}.section-head h2{font-size:1.7rem}.publication{grid-template-columns:100px 1fr;gap:16px}.paper-content h3{font-size:1rem}.paper-description{display:none}.paper-authors{font-size:.75rem}.paper-image{aspect-ratio:3/4}.timeline-row{grid-template-columns:1fr;gap:6px;padding:17px 0}.timeline-row .when{margin:0}.contact{align-items:start;flex-direction:column}.hero-image figcaption span{float:none}}
+  @media(prefers-reduced-motion:reduce){.js-home a,.project-media img{transition:none}}
+</style>
