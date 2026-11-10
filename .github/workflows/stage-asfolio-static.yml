@@ -1,0 +1,92 @@
+name: Stage Astro site for GitHub Pages
+
+on:
+  push:
+    branches: [redesign/as-folio-2026]
+    paths:
+      - '.github/workflows/stage-asfolio-static.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stage:
+    name: Compile and stage audited Pages release
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      ASTRO_SITE: https://jonathanspraggett.github.io
+      ASTRO_BASE: ''
+    steps:
+      - name: Check out reviewed redesign
+        uses: actions/checkout@v4
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install Astro dependencies
+        working-directory: site-v2/app
+        run: yarn install --immutable
+
+      - name: Build production website
+        working-directory: site-v2/app
+        run: yarn build
+
+      - name: Verify public pages and exclusion of unreleased content
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd site-v2/app
+          test -s dist/index.html
+          test -s dist/cv/index.html
+          test -s dist/projects/index.html
+          test -s dist/publications/index.html
+          for slug in heavy-lift-evtol-autonomy motion-planning-mpc state-estimation-localization flight-testing-filtering skyguard-security-autonomy robocup-software nuclear-inspection-drone humanoid-zero-shot-getup sim2real-soccer; do
+            test -s "dist/projects/$slug/index.html"
+          done
+          for pdf in short_cv.pdf aiaa2026_fft.pdf robocup2025.pdf thesis_2023.pdf; do
+            test -s "dist/assets/pdf/$pdf"
+          done
+          if grep -RilE 'vfs2027_submitted|spraggett2027payloadmpc|Payload-Aware Model Predictive Control for a Heavy-Lift Coaxial eVTOL' dist; then
+            echo 'ERROR: unpublished research reference in static output'
+            exit 1
+          fi
+          if find dist -type f \( -iname '*vfs2027*' -o -iname '*submitted*pdf' -o -iname '*payload-mpc*' \) | grep .; then
+            echo 'ERROR: unpublished research asset in static output'
+            exit 1
+          fi
+          echo 'PASS: all primary routes, four public PDFs, and embargo checks.'
+
+      - name: Stage a fully rendered static site on an isolated branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          src="$GITHUB_WORKSPACE/site-v2/app/dist"
+          stage="$RUNNER_TEMP/astro-static-release"
+          git worktree add --detach "$stage" HEAD
+          cd "$stage"
+          git switch --orphan deploy/as-folio-static
+          git rm -r --ignore-unmatch . > /dev/null || true
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf -- {} +
+          cp -a "$src/." .
+          touch .nojekyll
+          printf '%s\n' "Astro production release staged from $GITHUB_SHA" > DEPLOYMENT_VERSION.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "build: audited Astro static Pages release"
+          git push origin HEAD:refs/heads/deploy/as-folio-static
+          echo "Static release commit: $(git rev-parse HEAD)"
+
+      - name: Upload production build archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: as-folio-static-deployment-candidate
+          path: site-v2/app/dist/
+          retention-days: 7
