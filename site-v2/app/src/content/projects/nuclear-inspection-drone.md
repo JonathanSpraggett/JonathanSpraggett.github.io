@@ -1,59 +1,31 @@
 ---
 title: Autonomous UAV for Nuclear Safety Inspections
-description: University of Toronto capstone combining object detection, visual SLAM and collision-free motion planning.
+description: Engineering Science capstone combining visual SLAM, object detection and RRT* navigation.
 img: /legacy/images/drone.jpg
-img_alt: Nuclear inspection drone from original engineering portfolio
+img_alt: Inspection drone from original capstone portfolio
 importance: 10
 category: Student projects
 ---
 
-**University of Toronto Engineering Science capstone · 2023**  
-**Supervisor:** Prof. Jonathan Kelly · **Focus:** ROS-based autonomy, computer vision, SLAM and motion planning
+**University of Toronto · Engineering Science capstone · 2023**
 
-## The problem we designed for
+We designed an inspection-drone prototype to reduce manual exposure in hazardous environments. My focus was integrating **perception, localization and autonomous navigation**.
 
-Inspecting instruments in potentially hazardous industrial areas can expose people to unnecessary risk. Our capstone explored an autonomous UAV that could navigate an inspection environment, recognize relevant visual information, and travel between requested locations without manual piloting at every step.
+## Inspection architecture
 
-I worked on the autonomy architecture connecting perception, localization and waypoint-level planning. The project was a student engineering prototype, not a claim of production nuclear-site deployment.
+![Capstone perception, localization, planning and navigation](/assets/img/diagrams/capstone-pipeline.svg)
 
-## Hardware and flight platform
+- YOLOv5 detection for inspection targets.
+- Visual SLAM for navigation state.
+- RRT* for waypoint routing and obstacle handling.
 
-The first challenge was integrating a physical quadrotor with the compute, sensing and control components needed for autonomous experiments.
+## Hardware and simulation
 
-![Assembled inspection drone and onboard hardware](/legacy/images/Hardware.png)
+<div class="project-gallery">
+<figure><img src="/legacy/images/Hardware.png" alt="Original assembled inspection-drone hardware" loading="lazy"/><figcaption>Original assembled inspection-drone hardware</figcaption></figure>
+<figure><img src="/legacy/images/Hardware_2.png" alt="Second hardware configuration" loading="lazy"/><figcaption>Second hardware configuration</figcaption></figure>
+<figure><img src="/legacy/images/c3_4.png" alt="Waypoint-navigation experiment" loading="lazy"/><figcaption>Waypoint-navigation experiment</figcaption></figure>
+<figure><img src="/legacy/images/c4_2.png" alt="Obstacle-avoidance experiment" loading="lazy"/><figcaption>Obstacle-avoidance experiment</figcaption></figure>
+</div>
 
-*Original capstone hardware photograph, retained from my previous portfolio.*
-
-![Second view of the assembled inspection platform](/legacy/images/Hardware_2.png)
-
-## Perception and localization
-
-The vision system used **YOLOv5** to detect instruments and relevant objects. Visual SLAM provided localization information that could be consumed by the navigation stack. In an inspection task, these functions have to cooperate: a detected object is useful only if its location and the vehicle's pose are sufficiently well understood.
-
-## Planning and navigation
-
-We used **RRT*** for obstacle-aware route generation, with waypoint navigation translating the planned path into drone motion.
-
-### Progression through the capstone challenges
-
-The legacy portfolio documents incremental evaluations rather than only a final demonstration:
-
-1. **Stable hover:** establish a controlled platform before enabling higher-level navigation.
-2. **Waypoint navigation:** follow planned targets in a repeatable environment.
-3. **Navigation with obstacles:** evaluate the planner when a direct route is unavailable.
-
-![Waypoint planning experiment from the capstone](/legacy/images/c3_4.png)
-
-*Waypoint-navigation visualization from the original capstone report.*
-
-![Obstacle-avoidance planning experiment](/legacy/images/c4_2.png)
-
-*Obstacle-avoidance results preserved from the original website.*
-
-### Demonstration videos
-
-[Stable hover](https://www.youtube.com/watch?v=8mcuc0-HUeY) · [Waypoint navigation](https://www.youtube.com/watch?v=pLiu4lUnUiU) · [Obstacle navigation](https://www.youtube.com/watch?v=VCbzIF69IFw) · [Project demonstration](https://www.youtube.com/watch?v=Ou9ef7QbNfE)
-
-## What carried forward
-
-The capstone shaped how I now separate **mapping, geometric planning, motion execution and validation** in a larger autonomous flight stack. For the industrial-scale application of these ideas, see [planning and constrained MPC](/projects/motion-planning-mpc/).
+Watch the original [hover](https://youtu.be/8mcuc0-HUeY), [waypoint](https://youtu.be/pLiu4lUnUiU) and [obstacle](https://youtu.be/VCbzIF69IFw) demonstrations.
